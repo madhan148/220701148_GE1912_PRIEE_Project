@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Login & Signup Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        html, body {
+            display: grid;
+            height: 100vh;
+            width: 100%;
+            place-items: center;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            background: #fff;
+            max-width: 350px;
+            width: 100%;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+        .container .title {
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .input-box {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .input-box input {
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .input-box input:invalid {
+            border-color: red;
+        }
+        .button input {
+            width: 100%;
+            height: 40px;
+            font-size: 17px;
+            color: #fff;
+            background: linear-gradient(to right, #99004d 0%, #ff0080 100%);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button input:hover {
+            background: linear-gradient(to left, #99004d 0%, #ff0080 100%);
+        }
+        .option, .switch {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #99004d;
+        }
+        .switch:hover { text-decoration: underline; }
+        .remember {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+        .social-buttons a {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .google { background: #db4437; }
+        .google:hover { background: #c1351d; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginForm">
+        <div class="title">Login</div>
+        <form id="loginFormElement">
+            <div class="input-box">
+                <input type="email" id="loginEmail" placeholder="Email address" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="loginPassword" placeholder="Password" required minlength="6">
+            </div>
+            <div class="remember">
+                <label><input type="checkbox"> Remember Me</label>
+                <a href="#" class="switch" onclick="showForgotPassword()">Forgot Password?</a>
+            </div>
+            <div class="input-box button">
+                <input type="submit" value="Sign In">
+            </div>
+        </form>
+        <div class="option">or Connect With</div>
+        <div class="social-buttons">
+            <a href="#" class="google" id="googleSignIn"><i class="fab fa-google"></i> Sign in with Google</a>
+        </div>
+        <div class="switch" onclick="redirectToSignup()">Don't have an account? Sign Up</div>
+
+        <script>
+            function redirectToSignup() {
+                window.location.href = 'signup.html';
+            }
+        </script>
+        
+    </div>
+    
+    <script>
+        document.getElementById("loginFormElement").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents page refresh
+            validateLogin();
+        });
+
+        function validateLogin() {
+            let email = document.getElementById('loginEmail').value;
+            let password = document.getElementById('loginPassword').value;
+
+            if (!email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+
+            // Redirect to about.html after successful login
+            window.location.href = 'about.html';
+            return true;
+        }
+    </script>
+</body>
+</html>

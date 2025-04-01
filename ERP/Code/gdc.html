@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDC Club | REC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .event-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1); /* Transparent effect */
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .event-card img {
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .event-card:hover img {
+            transform: scale(1.1);
+        }
+
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">REC Event Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h2 class="text-center text-white">GDC Club</h2>
+
+        <!-- Ongoing Events -->
+        <h3 class="mt-4 text-white">Ongoing Events</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Game%20Development%20Workshop'">
+                    <img src="game.png" alt="Game Development Workshop" class="img-fluid mb-3">
+                    <h4>Game Development Workshop</h4>
+                    <p>Hands-on experience in game design and development.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Unity%20Bootcamp'">
+                    <img src="unity.jpeg" alt="Unity Bootcamp" class="img-fluid mb-3">
+                    <h4>Unity Bootcamp</h4>
+                    <p>Learn Unity and build interactive 3D games.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <h3 class="mt-5 text-white">Upcoming Events</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=AR%20VR%20Summit'">
+                    <img src="arvr.jpg" alt="AR VR Summit" class="img-fluid mb-3">
+                    <h4>AR/VR Summit</h4>
+                    <p>Explore the world of Augmented and Virtual Reality.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="event-card shadow rounded" onclick="window.location.href='register.html?event=Game%20Design%20Hackathon'">
+                    <img src="gamed.jpg" alt="Game Design Hackathon" class="img-fluid mb-3">
+                    <h4>Game Design Hackathon</h4>
+                    <p>Compete and innovate in a game development challenge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center bg-dark text-white py-3">
+        &copy; 2025 Rajalakshmi Engineering College | Event Registration Portal
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+    <script>
+        // Apply Vanta.js to the background div
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 100.00,
+            minWidth: 100.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x8c3fff, /* Purple lines */
+            backgroundColor: 0x0d0d0d, /* Dark background */
+            maxDistance: 23.00
+        });
+    </script>
+</body>
+</html>
